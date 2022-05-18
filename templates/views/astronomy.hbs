@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wiki Meteo</title>
+    {{>styles}}
+</head>
+
+<body>
+    <div class="container">
+        {{>header}}
+        {{#each villes}}
+
+        <div class="container-container">
+            <p>> Astronomie<span class="bold">
+                    [{{nearest_area.[0].areaName.[0].value}},
+                    {{nearest_area.[0].region.[0].value}},
+                    {{nearest_area.[0].country.[0].value}}]
+                </span></p>
+
+            <div class="subcontainer1">
+                {{#each weather}}
+                <div class="city">
+                    <h1>Date: {{date}}</h1>
+                    <p><span class="bold">Moon_illumination:</span> {{astronomy.[0].moon_illumination}}</p>
+                    <p><span class="bold">Moon phase:</span> {{astronomy.[0].moon_phase}}</p>
+                    <p><span class="bold">Moonrise:</span> {{astronomy.[0].moonrise}}</p>
+                    <p><span class="bold">Moonset:</span> {{astronomy.[0].moonset}}</p>
+                    <p><span class="bold">Sunrise:</span> {{astronomy.[0].sunrise}}</p>
+                    <p><span class="bold">Sunset:</span> {{astronomy.[0].sunset}}</p>
+                </div>
+                {{/each}}
+            </div>
+        </div>
+        {{/each}}
+
+    </div>
+    {{>footer}}
+</body>
+
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Wiki Meteo</title>
+  {{>styles}}
+</head>
+
+<body>
+  <div class="container">
+    {{>header}}
+    <p>> Conditions actuelle</p>
+    <div class="subcontainer2">
+
+      {{#each villes}}
+      <div class="city">
+        <h1>{{nearest_area.[0].areaName.[0].value}},
+          {{nearest_area.[0].region.[0].value}},
+          {{nearest_area.[0].country.[0].value}}</h1>
+        <p><span class="bold">Temperature:</span> {{current_condition.[0].temp_C}} C (Res.
+          {{current_condition.[0].FeelsLikeC}})
+        </p>
+        <p><span class="bold">Condition:</span> {{current_condition.[0].weatherDesc.[0].value}}</p>
+        <p><span class="bold">Vents:</span> {{current_condition.[0].windspeedKmph}} km/h
+          {{current_condition.[0].winddir16Point}}
+        </p>
+        <p><span class="bold">Visibilte:</span> {{current_condition.[0].visibility}}Km</p>
+        <p><span class="bold">UV:</span> {{current_condition.[0].temp_C}}</p>
+        <p><span class="bold">Humidite:</span> {{current_condition.[0].humidity}}%</p>
+        <p><span class="bold">Precipations:</span> {{current_condition.[0].precipInches}} mm</p>
+        <p>Derniere observation: {{current_condition.[0].localObsDateTime}}</p>
+
+      </div>
+      {{/each}}
+    </div>
+
+  </div>
+
+  {{>footer}}
+
+</body>
+
+</html>

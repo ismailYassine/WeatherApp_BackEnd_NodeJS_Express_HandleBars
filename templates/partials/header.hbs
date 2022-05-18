@@ -1,0 +1,17 @@
+<header>
+{{!-- //header welcome area --}}
+    <div class="nav_bar">
+        <a href="/"><img src="/logo.png" style="width: 50px;"></a>
+        <form action="/weather" method="get" enctype="application/x-www-form-urlencoded">
+        <input class="search" type="search" placeholder="Entrer le nom d'une ville" name="ville" value="">
+        <input class="button" type="submit" value="Trouver">
+        </form>
+    </div>
+{{!-- header nav area --}}
+    <nav class="nav_nav">
+        <a href="/weather">Condition actuelle</a> •
+        <a href="/weather/prochainesheures">Prochaines heures</a> •
+        <a href="/weather/prochainjour">Prochain jour</a> •
+        <a href="/astronomy">Astronomie</a>
+    </nav>
+</header>

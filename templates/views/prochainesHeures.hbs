@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wiki Meteo</title>
+    {{>styles}}
+</head>
+
+<body>
+    <div class="container">
+        {{>header}}
+
+                {{#each villes}}
+
+        <div class="container-container">
+            <p>> Previsions meteo pour les prochaines heures
+                <span class="bold1">[{{nearest_area.[0].areaName.[0].value}},
+                    {{nearest_area.[0].region.[0].value}},
+                    {{nearest_area.[0].country.[0].value}}]</span>
+            </p>
+            <p>> Derniere observation: {{current_condition.[0].localObsDateTime}}</p>
+
+            
+            <div class="subcontainer">
+                {{#each weather.[0].hourly}}
+                <div class="city">
+
+
+
+                    <h1>Heure: {{time}}</h1>
+                    <p><span class="bold">Temperature:</span> {{tempC}} C (Res. {{FeelsLikeC}})</p>
+                    <p><span class="bold">Condition:</span> {{weatherDesc.[0].value}} </p>
+                    <p><span class="bold">Vents:</span> {{windspeedKmph}} km/h {{winddir16Point}}</p>
+                    <p><span class="bold">Visibilte:</span> {{visibility}}Km</p>
+                    <p><span class="bold">UV:</span> {{uvIndex}}</p>
+                    <p><span class="bold">Humidite:</span> {{humidity}}%</p>
+                    <p><span class="bold">Precipations:</span> {{precipMM}} mm</p>
+                </div>
+                {{/each}}
+            </div>
+        </div>
+                        {{/each}}
+
+    </div>
+
+    {{>footer}}
+</body>
+
+</html>
